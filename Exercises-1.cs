@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
-
 namespace BTVN
 {
     internal class Exercises
