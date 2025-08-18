@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 namespace BTVN
 {
     internal class Exercises
@@ -44,20 +44,41 @@ namespace BTVN
         }
         public static void Ex05()
         {
-            //5.to convert Celsius to Fahrenheit and vice versa
-            Console.Write("Celsius to Fahrenheit [0] or Fahrenheit to Celsius [1]? ");
-            string option = Console.ReadLine();
+            //5.to convert Celsius to Fahrenheit and vice vers
+            string option = "";
+            while (option != "0" && option != "1")
+            {
+                Console.Write("Celsius to Fahrenheit [0] or Fahrenheit to Celsius [1]? ");
+                option = Console.ReadLine();
+                if (option != "0" && option != "1")
+                {
+                    Console.WriteLine("Invalid input, please enter 0 or 1.");
+                }
+            }
+
             if (option == "0")
             {
                 Console.Write("Enter Celsius: ");
-                double.TryParse(Console.ReadLine(), out double c);
-                Console.WriteLine($"Answer: {c * 9 / 5 + 32}");
+                if (double.TryParse(Console.ReadLine(), out double c))
+                {
+                    Console.WriteLine($"Answer: {c * 9 / 5 + 32}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid number input!");
+                }
             }
-            else
+            else // option == "1"
             {
                 Console.Write("Enter Fahrenheit: ");
-                double.TryParse(Console.ReadLine(), out double f);
-                Console.WriteLine($"Answer: {(f - 32) * 5 / 9}");
+                if (double.TryParse(Console.ReadLine(), out double f))
+                {
+                    Console.WriteLine($"Answer: {(f - 32) * 5 / 9}");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid number input!");
+                }
             }
         }
         public static void Ex06()
@@ -129,7 +150,7 @@ namespace BTVN
                 Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
                 string choice = Console.ReadLine();
-                Console.WriteLine();
+                Console.WriteLine(); 
                 switch (choice)
                 {
                     case "1": Exercises.Ex01(); break;
